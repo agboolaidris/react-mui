@@ -1,10 +1,10 @@
+import React from "react";
 import { observer } from "mobx-react";
-import React, { memo } from "react";
 import Todo from "../store/todo";
 interface TodoListProps {
   todostore: Todo;
 }
-const TodoList = ({ todostore }: TodoListProps) => {
+const TodoList = observer(({ todostore }: TodoListProps) => {
   return (
     <div>
       {todostore.todos.map((todo) => (
@@ -17,8 +17,6 @@ const TodoList = ({ todostore }: TodoListProps) => {
       ))}
     </div>
   );
-};
+});
 
-TodoList.displayName = "Todo";
-
-export default observer(TodoList);
+export default TodoList;
